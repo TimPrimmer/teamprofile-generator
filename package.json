@@ -1,0 +1,25 @@
+{
+  "name": "teamprofile-generator",
+  "version": "1.0.0",
+  "description": "Node app that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "index.js test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimPrimmer/teamprofile-generator.git"
+  },
+  "author": "Tim Primmer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TimPrimmer/teamprofile-generator/issues"
+  },
+  "homepage": "https://github.com/TimPrimmer/teamprofile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.1"
+  }
+}
