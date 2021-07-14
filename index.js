@@ -5,9 +5,11 @@ const myArgs = process.argv.slice(2);
 
 // used if the user passes in the "test" parameter when starting the node app
 let mockData = {
-
+  name: 'Tim',
+  id: '0',
+  email: 'test@email.com',
+  officeNumber: '567'
 };
-
 
 // our giant questions array for inquirer
 const questions = [
@@ -49,7 +51,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "id",
+    name: "officeNumber",
     message: "What is the office number?",
     validate(value) {
       if (!value) {
@@ -60,3 +62,13 @@ const questions = [
     }
   }
 ];
+
+const getInput = () => {
+  inquirer
+    .prompt(questions)
+    .then((answers) => {
+      console.log(answers);
+    });
+}
+
+getInput();
