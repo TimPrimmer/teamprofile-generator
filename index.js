@@ -1,7 +1,13 @@
 // packages needed for this application
 const inquirer = require('inquirer');
 //const fs = require('fs');
+
+
+const Manager = require("./lib/Manager.js");
 const myArgs = process.argv.slice(2);
+
+// I split out the questions to another file as they just took up too much space
+const questions = require("./lib/Questions.js"); 
 
 // used if the user passes in the "test" parameter when starting the node app
 let mockData = {
@@ -11,64 +17,21 @@ let mockData = {
   officeNumber: '567'
 };
 
-// our giant questions array for inquirer
-const questions = [
-  {
-    type: "input",
-    name: "name",
-    message: "What is the team managers name?",
-    validate(value) {
-      if (!value) {
-        console.log("please enter in a name!")
-        return false;
-      }
-      else { return true; }
-    }
-  },
-  {
-    type: "input",
-    name: "id",
-    message: "What is the team managers ID?",
-    validate(value) {
-      if (!value) {
-        console.log("please enter in an ID!")
-        return false;
-      }
-      else { return true; }
-    }
-  },
-  {
-    type: "input",
-    name: "email",
-    message: "What is the team managers email?",
-    validate(value) {
-      if (!value) {
-        console.log("please provide a email!")
-        return false;
-      }
-      else { return true; }
-    }
-  },
-  {
-    type: "input",
-    name: "officeNumber",
-    message: "What is the office number?",
-    validate(value) {
-      if (!value) {
-        console.log("please enter in an office number!")
-        return false;
-      }
-      else { return true; }
-    }
-  }
-];
+let team = [];
 
 const getInput = () => {
-  inquirer
-    .prompt(questions)
-    .then((answers) => {
-      console.log(answers);
-    });
+  if (myArgs[0] === "test") { // if the user passes in "test" as the only argument, it will use the mock data instead skipping the prompts
+    team.push(new Manager(mockData.name, mockData.id, mockData.email, mockData.officeNumber));
+    console.log(team);
+  }
+  else {
+    inquirer
+      .prompt(questions.manager)
+      .then((answers) => {
+        team.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
+        console.log(team);
+      });
+  }
 }
 
 getInput();
