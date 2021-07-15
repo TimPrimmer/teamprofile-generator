@@ -1,6 +1,6 @@
 // packages needed for this application
 const inquirer = require('inquirer');
-//const fs = require('fs');
+const fs = require('fs');
 
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
@@ -16,13 +16,34 @@ const generateHTML = require("./utils/generateHTML.js");
 
 let team = [];
 
+const writeFiles = (fileName, data) => {
+  fs.writeFile(fileName, data, err => {
+    if (err) {
+      console.log("HTML generation failed");
+      return console.error(err);
+    } else {
+      console.log("HTML generated successfully");
+    }
+  });
+
+  let cssName = "./dist/style.css";
+
+  fs.copyFile("./utils/style.css", "./dist/style.css", (err) => {
+    if (err) {
+      console.log("CSS generation failed");
+      return console.error(err);
+    } else {
+      console.log("CSS generated successfully");
+    }
+  });
+
+}
+
 const getInput = () => {
   if (myArgs[0] === "test") { // if the user passes in "test" as the only argument, it will use the mock data instead skipping the prompts
-    generateHTML(mockData);
+    writeFiles("./dist/mock-index.html", generateHTML(mockData));
   }
   else {
-
-
 
     inquirer
       .prompt(questions.manager)
@@ -38,7 +59,7 @@ const getInput = () => {
               .prompt(questions.intern)
               .then((answers) => {
                 team.push(new Intern(answers.name, answers.id, answers.email, answers.school));
-                
+
                 generateHTML(team);
 
               });
