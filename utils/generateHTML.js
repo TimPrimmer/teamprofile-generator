@@ -1,5 +1,9 @@
+const Manager = require("../lib/Manager.js");
+const Engineer = require("../lib/Engineer.js");
+const Intern = require("../lib/Intern.js");
+
 const makeCard = (data) => {
-    let tempHTML = `
+  let tempHTML = `
     <div class="team-card">
       <div class="card-top">
         <h2>${data.getName()}</h2>
@@ -19,19 +23,28 @@ const makeCard = (data) => {
         <div class="card-info-box-bottom">
           <p>
           `;
-    tempHTML += `
+  if (data instanceof Manager) {
+    tempHTML += `Office #: ${data.officeNumber}`
+  }
+  if (data instanceof Engineer) {
+    tempHTML += `Github: ${data.getGithub()}`
+  }
+  if (data instanceof Intern) {
+    tempHTML += `School: ${data.getSchool()}`
+  }
+  tempHTML += `
           </p>
         </div>
       </div>
     </div>
     `;
 
-    return tempHTML;
+  return tempHTML;
 }
 
 const generateHTML = (team) => {
-    let tempHTML = "";
-    tempHTML += `
+  let tempHTML = "";
+  tempHTML += `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -46,16 +59,17 @@ const generateHTML = (team) => {
         <h1>My Team</h1>
       </header>
       <main>
-        <div id="card-holder">
-        ${makeCard(team[0])}
-        ${makeCard(team[1])}
-        ${makeCard(team[2])}
+        <div id="card-holder">`;
+  team.forEach(member => {
+    tempHTML += `${makeCard(member)}`
+  });
+  tempHTML += `
         </div>
       </main>
     </body>
     </html>
     `;
-    return tempHTML;
+  return tempHTML;
 }
 
 module.exports = generateHTML;

@@ -1,3 +1,13 @@
+// questions for the main menu
+const mainMenuQuestions = [
+  {
+    type: "list",
+    name: "selection",
+    message: "What would you like to do?",
+    choices: ["1. Add Engineer", "2. Add Intern", "3. Finish building team"]
+  }
+];
+
 // questions for the manager
 const managerQuestions = [
   {
@@ -156,6 +166,7 @@ const internQustions = [
 
 // questions object holding all three questionnaires 
 const questions = {
+  menu: mainMenuQuestions,
   manager: managerQuestions,
   engineer: engineerQuestions,
   intern: internQustions
