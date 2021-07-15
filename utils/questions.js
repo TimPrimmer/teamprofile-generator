@@ -107,7 +107,7 @@ const internQustions = [
   {
     type: "input",
     name: "name",
-    message: "What is the team managers name?",
+    message: "What is the interns name?",
     validate(value) {
       if (!value) {
         console.log("please enter in a name!")
@@ -119,7 +119,7 @@ const internQustions = [
   {
     type: "input",
     name: "id",
-    message: "What is the team managers ID?",
+    message: "What is the interns ID?",
     validate(value) {
       if (!value) {
         console.log("please enter in an ID!")
@@ -131,7 +131,7 @@ const internQustions = [
   {
     type: "input",
     name: "email",
-    message: "What is the team managers email?",
+    message: "What is the interns email?",
     validate(value) {
       if (!value) {
         console.log("please provide a email!")
@@ -142,11 +142,11 @@ const internQustions = [
   },
   {
     type: "input",
-    name: "officeNumber",
-    message: "What is the office number?",
+    name: "school",
+    message: "Where did the intern go to school?",
     validate(value) {
       if (!value) {
-        console.log("please enter in an office number!")
+        console.log("please enter in a school name!")
         return false;
       }
       else { return true; }
