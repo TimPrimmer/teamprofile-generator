@@ -113,7 +113,7 @@ const engineerQuestions = [
 ];
 
 // questions for the intern
-const internQustions = [
+const internQuestions = [
   {
     type: "input",
     name: "name",
@@ -164,12 +164,12 @@ const internQustions = [
   }
 ];
 
-// questions object holding all three questionnaires 
+// questions object holding all four questionnaires 
 const questions = {
   menu: mainMenuQuestions,
   manager: managerQuestions,
   engineer: engineerQuestions,
-  intern: internQustions
+  intern: internQuestions
 }
 
 module.exports = questions;

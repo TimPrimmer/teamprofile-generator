@@ -29,7 +29,7 @@ const writeFiles = (fileName, data) => {
 
   let cssName = "./dist/style.css";
 
-  fs.copyFile("./utils/style.css", "./dist/style.css", (err) => {
+  fs.copyFile("./src/style.css", "./dist/style.css", (err) => {
     if (err) {
       console.log("CSS generation failed");
       return console.error(err);
@@ -41,7 +41,7 @@ const writeFiles = (fileName, data) => {
 }
 
 
-// main menu inquirer loop which returns another call to this function with a new inquirer
+// main menu inquirer loop which returns another call to this function with a new inquirer, only exits if the user select option 3
 var mainMenu = function (question) {
   return inquirer
     .prompt(question)
