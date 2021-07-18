@@ -18,27 +18,40 @@ h1 {
 
 h2 {
   color: white;
-  padding: 5px 0px 5px 5px;
+  padding: 10px 0px 5px 10px;
+  width: 100%;
 }
 
 h3 {
+  display:flex;
+  align-content: center;
   color: white;
-  padding: 0px 0px 5px 5px;
+  padding: 5px 0px 10px 5px;
+  width: 200px;
+}
+
+.material-icons {
+  color: white;
+  padding-left: 10px;
+  padding-top: 3px;
 }
 
 .team-card {
   background-color: #f6f7f9;
   border-radius: 5px;
-  min-width: 300px;
+  min-width: 250px;
   width: min-content;
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.575);
-  margin: 10px 10px 10px 10px;
+  margin: 20px;
 }
 
 .card-top {
   background-color: #0077f7;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .card-bottom {
@@ -46,7 +59,7 @@ h3 {
 }
 
 #card-holder {
-  padding-top: 50px;
+  padding: 50px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

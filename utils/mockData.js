@@ -3,9 +3,11 @@ const Engineer = require("../lib/Engineer.js");
 const Intern = require("../lib/Intern.js");
 
 const mockData = [
-  new Manager ('Tim','0','test@email.com','54'),
-  new Engineer ('Johnno','1','lol@email.com','JohnnoLonno'),
-  new Intern ('Scruffy','2','scruff@email.com','Harvard')
+  new Manager ('Tim','1','test@email.com','54'),
+  new Engineer ('Johnny','2','bravo@email.com','JohnB'),
+  new Intern ('Scruffy','3','clean@email.com','Harvard University'),
+  new Engineer ('Mick','4','crikey@email.com','TrickyMicky'),
+  new Intern ('Lauren','5','scruff@email.com','University of Texas')
 ]
 
 module.exports = mockData;

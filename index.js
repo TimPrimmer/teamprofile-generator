@@ -41,8 +41,8 @@ const writeFiles = (fileName, data) => {
 }
 
 
-
-var prompt = function (question) {
+// main menu inquirer loop which returns another call to this function with a new inquirer
+var mainMenu = function (question) {
   return inquirer
     .prompt(question)
     .then(function (answers) {
@@ -50,18 +50,18 @@ var prompt = function (question) {
         return inquirer
           .prompt(questions.engineer)
           .then(function (answers) {
-            team.push(new Engineer(answers.name, answers.id, answers.email, answers.school));
-            return prompt(questions.menu);
+            team.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
+            return mainMenu(questions.menu);
           });
       } else if (answers.selection.charAt(0) === "2") {
         return inquirer
           .prompt(questions.intern)
           .then(function (answers) {
-            team.push(new Intern(answers.name, answers.id, answers.email, answers.github));
-            return prompt(questions.menu);
+            team.push(new Intern(answers.name, answers.id, answers.email, answers.school));
+            return mainMenu(questions.menu);
           });
       } else if (answers.selection.charAt(0) === "3") {
-        writeFiles("./dist/mock-index.html", generateHTML(team));
+        writeFiles("./dist/index.html", generateHTML(team));
         return;
       }
     });
@@ -76,7 +76,8 @@ const getInput = () => {
     inquirer
       .prompt(questions.manager)
       .then(function (answers) {
-        prompt(questions.menu);
+        team.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
+        mainMenu(questions.menu);
       });
   }
 }
