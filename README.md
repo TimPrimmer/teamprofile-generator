@@ -46,4 +46,4 @@ I also tried to use more of the module.exports to facilite a cleaner index.js. F
 
 ## Video
 
-[Video walkthrough link!]( )
+[Video walkthrough link!](https://drive.google.com/file/d/1-tF-Nv1Z8pxmunsETijk5cHyrut3k_nw/view)
